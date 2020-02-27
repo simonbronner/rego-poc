@@ -1,8 +1,8 @@
-
 .terraform:
 	terraform init
 
 plan.file: .terraform
+	GOOGLE_CLOUD_KEYFILE_JSON=./service-account.json \
 	terraform plan -out plan.file
 
 plan.json: plan.file

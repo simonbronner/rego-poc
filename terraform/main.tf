@@ -1,14 +1,14 @@
 provider "google" {
-  project = "simon-bronner-contino-project"
-  region  = "australia-southeast1"
-  zone    = "australia-southeast1-a"
+  project = var.project_id
+  region  = var.region
+  zone    = var.zone
 }
 
 resource "google_bigquery_dataset" "default" {
   dataset_id                  = "foo"
   friendly_name               = "test"
   description                 = "This is a test description"
-  location                    = "australia-southeast1"
+  location                    = var.region
   default_table_expiration_ms = 3600000
 
   labels = {

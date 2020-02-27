@@ -8,10 +8,8 @@ plan: opa
 clean:
 	cd terraform && make clean
 
-opa:
-	mkdir opa
-	mkdir opa/rules
-	mkdir opa/data
-
-init: opa plan
-	echo "Hello"
+repl: plan
+	docker run -it -w /app \
+		-v $$(pwd)/opa:/app \
+		openpolicyagent/opa run \
+		-w -l debug /app

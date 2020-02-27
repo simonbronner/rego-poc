@@ -1,0 +1,271 @@
+{
+  "format_version": "0.1",
+  "terraform_version": "0.12.13",
+  "variables": {
+    "project_id": {
+      "value": "simon-bronner-contino-project"
+    },
+    "region": {
+      "value": "australia-southeast1"
+    },
+    "zone": {
+      "value": "australia-southeast1-a"
+    }
+  },
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "google_bigquery_dataset.default",
+          "mode": "managed",
+          "type": "google_bigquery_dataset",
+          "name": "default",
+          "provider_name": "google",
+          "schema_version": 0,
+          "values": {
+            "dataset_id": "foo",
+            "default_encryption_configuration": [],
+            "default_partition_expiration_ms": null,
+            "default_table_expiration_ms": 3600000,
+            "delete_contents_on_destroy": false,
+            "description": "This is a test description",
+            "friendly_name": "test",
+            "labels": {
+              "env": "default"
+            },
+            "location": "australia-southeast1",
+            "timeouts": null
+          }
+        },
+        {
+          "address": "google_bigquery_table.default",
+          "mode": "managed",
+          "type": "google_bigquery_table",
+          "name": "default",
+          "provider_name": "google",
+          "schema_version": 0,
+          "values": {
+            "clustering": null,
+            "dataset_id": "foo",
+            "description": null,
+            "encryption_configuration": [],
+            "external_data_configuration": [],
+            "friendly_name": null,
+            "labels": {
+              "env": "default"
+            },
+            "schema": "[{\"description\":\"The Permalink\",\"mode\":\"NULLABLE\",\"name\":\"permalink\",\"type\":\"STRING\"},{\"description\":\"State where the head office is located\",\"mode\":\"NULLABLE\",\"name\":\"state\",\"type\":\"STRING\"}]",
+            "table_id": "bar",
+            "time_partitioning": [
+              {
+                "expiration_ms": null,
+                "field": null,
+                "require_partition_filter": null,
+                "type": "DAY"
+              }
+            ],
+            "view": []
+          }
+        }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "google_bigquery_dataset.default",
+      "mode": "managed",
+      "type": "google_bigquery_dataset",
+      "name": "default",
+      "provider_name": "google",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "dataset_id": "foo",
+          "default_encryption_configuration": [],
+          "default_partition_expiration_ms": null,
+          "default_table_expiration_ms": 3600000,
+          "delete_contents_on_destroy": false,
+          "description": "This is a test description",
+          "friendly_name": "test",
+          "labels": {
+            "env": "default"
+          },
+          "location": "australia-southeast1",
+          "timeouts": null
+        },
+        "after_unknown": {
+          "access": true,
+          "creation_time": true,
+          "default_encryption_configuration": [],
+          "etag": true,
+          "id": true,
+          "labels": {},
+          "last_modified_time": true,
+          "project": true,
+          "self_link": true
+        }
+      }
+    },
+    {
+      "address": "google_bigquery_table.default",
+      "mode": "managed",
+      "type": "google_bigquery_table",
+      "name": "default",
+      "provider_name": "google",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "clustering": null,
+          "dataset_id": "foo",
+          "description": null,
+          "encryption_configuration": [],
+          "external_data_configuration": [],
+          "friendly_name": null,
+          "labels": {
+            "env": "default"
+          },
+          "schema": "[{\"description\":\"The Permalink\",\"mode\":\"NULLABLE\",\"name\":\"permalink\",\"type\":\"STRING\"},{\"description\":\"State where the head office is located\",\"mode\":\"NULLABLE\",\"name\":\"state\",\"type\":\"STRING\"}]",
+          "table_id": "bar",
+          "time_partitioning": [
+            {
+              "expiration_ms": null,
+              "field": null,
+              "require_partition_filter": null,
+              "type": "DAY"
+            }
+          ],
+          "view": []
+        },
+        "after_unknown": {
+          "creation_time": true,
+          "encryption_configuration": [],
+          "etag": true,
+          "expiration_time": true,
+          "external_data_configuration": [],
+          "id": true,
+          "labels": {},
+          "last_modified_time": true,
+          "location": true,
+          "num_bytes": true,
+          "num_long_term_bytes": true,
+          "num_rows": true,
+          "project": true,
+          "self_link": true,
+          "time_partitioning": [
+            {}
+          ],
+          "type": true,
+          "view": []
+        }
+      }
+    }
+  ],
+  "configuration": {
+    "provider_config": {
+      "google": {
+        "name": "google",
+        "expressions": {
+          "project": {
+            "references": [
+              "var.project_id"
+            ]
+          },
+          "region": {
+            "references": [
+              "var.region"
+            ]
+          },
+          "zone": {
+            "references": [
+              "var.zone"
+            ]
+          }
+        }
+      }
+    },
+    "root_module": {
+      "resources": [
+        {
+          "address": "google_bigquery_dataset.default",
+          "mode": "managed",
+          "type": "google_bigquery_dataset",
+          "name": "default",
+          "provider_config_key": "google",
+          "expressions": {
+            "dataset_id": {
+              "constant_value": "foo"
+            },
+            "default_table_expiration_ms": {
+              "constant_value": 3600000
+            },
+            "description": {
+              "constant_value": "This is a test description"
+            },
+            "friendly_name": {
+              "constant_value": "test"
+            },
+            "labels": {
+              "constant_value": {
+                "env": "default"
+              }
+            },
+            "location": {
+              "references": [
+                "var.region"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "google_bigquery_table.default",
+          "mode": "managed",
+          "type": "google_bigquery_table",
+          "name": "default",
+          "provider_config_key": "google",
+          "expressions": {
+            "dataset_id": {
+              "references": [
+                "google_bigquery_dataset.default"
+              ]
+            },
+            "labels": {
+              "constant_value": {
+                "env": "default"
+              }
+            },
+            "schema": {
+              "constant_value": "[\n  {\n    \"name\": \"permalink\",\n    \"type\": \"STRING\",\n    \"mode\": \"NULLABLE\",\n    \"description\": \"The Permalink\"\n  },\n  {\n    \"name\": \"state\",\n    \"type\": \"STRING\",\n    \"mode\": \"NULLABLE\",\n    \"description\": \"State where the head office is located\"\n  }\n]\n"
+            },
+            "table_id": {
+              "constant_value": "bar"
+            },
+            "time_partitioning": [
+              {
+                "type": {
+                  "constant_value": "DAY"
+                }
+              }
+            ]
+          },
+          "schema_version": 0
+        }
+      ],
+      "variables": {
+        "project_id": {},
+        "region": {
+          "default": "australia-southeast1"
+        },
+        "zone": {
+          "default": "australia-southeast1-a"
+        }
+      }
+    }
+  }
+}
